@@ -36,17 +36,15 @@ public class Server {
             Request request=new Request(client);
 //获取响应协议
             Response response=new Response(client);
-            Servlet servlet = null;
-            if (request.getUrl().equals("login")){
-                servlet=new LoginServlet();
-            } else if (request.getUrl().equals("reg")) {
-                servlet=new RegisterServlet();
+            Servlet servlet = WebApp.getServletFromUrl(request.getUrl());
+            if (null!=servlet){
+                servlet.service(request,response);
+                //关注了状态码
+                response.pushToBrowser(200);
             }else {
-                //首页
+                //错误
+                response.pushToBrowser(404);
             }
-            servlet.service(request, response);
-//关注了状态码
-            response.pushToBrowser(200);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("客户端错误");

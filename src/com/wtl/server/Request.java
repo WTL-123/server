@@ -52,7 +52,7 @@ public class Request {
         //2)、获取HTTP/的位置
         int endIdx=this.requestInfo.indexOf("HTTP/");
         //3)、分割字符串
-        this.url=this.requestInfo.substring(startIdx,endIdx);
+        this.url=this.requestInfo.substring(startIdx,endIdx).trim();
         //3)、获取？的位置
         int queryIdx=this.url.indexOf("?");
         if (queryIdx>=0){//表示存在请求参数
