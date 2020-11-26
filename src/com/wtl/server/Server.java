@@ -33,13 +33,9 @@ public class Server {
             Socket client = serverSocket.accept();
             System.out.println("一个客户端建立了连接...");
 //获取请求协议
-            InputStream is = client.getInputStream();
-            byte[] datas=new byte[1024*1024];
-            int len = is.read(datas);
-            String requestInfo = new String(datas, 0, len);
-            System.out.println(requestInfo);
+            Request request=new Request(client);
             Response response=new Response(client);
-            //关注了内容
+//关注了内容
             response.print("<html>");
             response.print("<head>");
             response.print("<title>");
@@ -50,7 +46,7 @@ public class Server {
             response.print("终于回来了。。。");
             response.print("</body>");
             response.print("</html>");
-            //关注了状态码
+//关注了状态码
             response.pushToBrowser(200);
         } catch (IOException e) {
             e.printStackTrace();

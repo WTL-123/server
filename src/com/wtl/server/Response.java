@@ -7,13 +7,17 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.util.Date;
 
+/**
+ * 封装响应协议：动态获取内容，关注内容，关注响应码
+ */
 public class Response {
     private BufferedWriter bw;
-    //正文
+//正文
     private StringBuilder content;
-    //协议头（状态行与请求头回车）信息
+//协议头（状态行与请求头回车）信息
     private StringBuilder headinfo;
-    private int len;//正文的字节数
+//正文的字节数
+    private int len;
     private final String BLANK=" ";
     private final String CRLF="\r\n";
     private Response(){
@@ -34,7 +38,7 @@ public class Response {
         this();
         bw=new BufferedWriter(new OutputStreamWriter(os));
     }
-    //动态添加内容
+//动态添加内容
     public Response print(String info){
         content.append(info);
         len+=info.getBytes().length;
@@ -45,7 +49,7 @@ public class Response {
         len+=(info+CRLF).getBytes().length;
         return this;
     }
-    //推送响应信息
+//推送响应信息
     public void pushToBrowser(int code) throws IOException {
         if (null==headinfo){
             code=505;
@@ -55,9 +59,9 @@ public class Response {
         bw.append(content);
         bw.flush();
     }
-    //构建头信息
+//构建头信息
     private void createHeadInfo(int code){
-        //1、响应行：HTTP/1.1 200 OK
+//1、响应行：HTTP/1.1 200 OK
         headinfo.append("Http/1.1").append(BLANK);
         headinfo.append(code).append(BLANK);
         switch (code){
@@ -71,7 +75,7 @@ public class Response {
                 headinfo.append("SERVER ERROR").append(CRLF);
                 break;
         }
-        //2、响应行（最后一行存在空行）
+//2、响应行（最后一行存在空行）
         headinfo.append("Date:").append(new Date()).append(CRLF);
         headinfo.append("Server").append("wtl Server/0.0.1;charset=GBK").append(CRLF);
         headinfo.append("Content-type;text/html").append(CRLF);
