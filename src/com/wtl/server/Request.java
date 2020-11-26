@@ -85,7 +85,7 @@ public class Request {
             kv = Arrays.copyOf(kv, 2);
             //获取key和value
             String key = kv[0];
-            String value = kv[1]==null?null:decode(kv[1],"utf-8");
+            String value = kv[1]==null?null:decode(kv[1],"UTF-8");
             //存储到map中
             if (!parameterMap.containsKey(key)) {//第一次
                 parameterMap.put(key, new ArrayList<String>());

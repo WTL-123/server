@@ -34,18 +34,17 @@ public class Server {
             System.out.println("一个客户端建立了连接...");
 //获取请求协议
             Request request=new Request(client);
+//获取响应协议
             Response response=new Response(client);
-//关注了内容
-            response.print("<html>");
-            response.print("<head>");
-            response.print("<title>");
-            response.print("这是一个服务器....");
-            response.print("</title>");
-            response.print("</head>");
-            response.print("<body>");
-            response.print(request.getParameter("a"));
-            response.print("</body>");
-            response.print("</html>");
+            Servlet servlet = null;
+            if (request.getUrl().equals("login")){
+                servlet=new LoginServlet();
+            } else if (request.getUrl().equals("reg")) {
+                servlet=new RegisterServlet();
+            }else {
+                //首页
+            }
+            servlet.service(request, response);
 //关注了状态码
             response.pushToBrowser(200);
         } catch (IOException e) {

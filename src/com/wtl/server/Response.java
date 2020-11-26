@@ -35,18 +35,6 @@ public class Response {
         this();
         bw=new BufferedWriter(new OutputStreamWriter(os));
     }
-    /**
-     * 处理中文
-     * @return
-     */
-    private String decode(String value,String enc){
-        try {
-            return java.net.URLDecoder.decode(value,enc);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 //动态添加内容
     public Response print(String info){
         content.append(info);
@@ -65,7 +53,7 @@ public class Response {
         }
         createHeadInfo(code);
         bw.append(headinfo);
-        bw.append(decode(content.toString(),"utf-8"));
+        bw.append(content);
         bw.flush();
     }
 //构建头信息
