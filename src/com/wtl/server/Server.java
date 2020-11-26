@@ -39,11 +39,11 @@ public class Server {
             response.print("<html>");
             response.print("<head>");
             response.print("<title>");
-            response.print("服务器响应成功");
+            response.print("这是一个服务器....");
             response.print("</title>");
             response.print("</head>");
             response.print("<body>");
-            response.print("终于回来了。。。");
+            response.print(request.getParameter("a"));
             response.print("</body>");
             response.print("</html>");
 //关注了状态码
