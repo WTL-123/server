@@ -1,4 +1,4 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
 import java.io.*;
 import java.net.Socket;

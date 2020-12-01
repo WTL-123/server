@@ -1,17 +1,21 @@
-package com.wtl.server;
+package com.wtl.user;
 
-public class LoginServlet implements Servlet {
+import com.wtl.server.core.Request;
+import com.wtl.server.core.Response;
+import com.wtl.server.core.Servlet;
+
+public class RegisterServlet implements Servlet {
     @Override
     public void service(Request request, Response response) {
-        //关注了内容
         response.print("<html>");
         response.print("<head>");
+        response.print("<meta charset=\"UTF-8\">");
         response.print("<title>");
-        response.print("hgfhdgfdhgd");
+        response.print("注册成功页面");
         response.print("</title>");
         response.print("</head>");
         response.print("<body>");
-        response.print("sdfasfds");
+        response.print("注册成功");
         response.print("</body>");
         response.print("</html>");
     }

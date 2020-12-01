@@ -1,12 +1,8 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Date;
 
 /**
  * 使用ServerSocket建立与浏览器的连接，获取请求协议

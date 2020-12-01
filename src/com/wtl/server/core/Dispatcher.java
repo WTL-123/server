@@ -1,7 +1,5 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;

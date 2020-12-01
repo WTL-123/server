@@ -1,8 +1,7 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.lang.reflect.InvocationTargetException;
 
 public class WebApp {
     private static WebContext webContext;

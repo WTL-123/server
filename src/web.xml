@@ -2,11 +2,11 @@
  <web-app>
  <servlet>
   <servlet-name>login</servlet-name>
-  <servlet-class>com.wtl.server.LoginServlet</servlet-class>
+  <servlet-class>com.wtl.user.LoginServlet</servlet-class>
  </servlet>
    <servlet>
   <servlet-name>reg</servlet-name>
-  <servlet-class>com.wtl.server.RegisterServlet</servlet-class>
+  <servlet-class>com.wtl.user.RegisterServlet</servlet-class>
  </servlet>   
  <servlet-mapping>
   <servlet-name>login</servlet-name>

@@ -1,4 +1,4 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
 import java.util.HashSet;
 import java.util.Set;

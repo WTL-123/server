@@ -1,4 +1,4 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
 /**
  * 服务器小脚本接口

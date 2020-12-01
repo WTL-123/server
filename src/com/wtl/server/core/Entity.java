@@ -1,4 +1,4 @@
-package com.wtl.server;
+package com.wtl.server.core;
 /**
  * <servlet>
   <servlet-name>login</servlet-name>

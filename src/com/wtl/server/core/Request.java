@@ -1,4 +1,4 @@
-package com.wtl.server;
+package com.wtl.server.core;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public class Request {
     }
     public Request(InputStream is){
         parameterMap=new HashMap<String,List<String>>();
-        byte[] datas=new byte[1024*1024];
+        byte[] datas=new byte[1024*1024*1024];
         int len;
         try {
             len = is.read(datas);
@@ -63,7 +63,7 @@ public class Request {
         System.out.println(url);
         System.out.println("---3、获取请求参数：如果Get已经获取，如果是post可能在请求体中---");
         if (method.equals("post")){
-            String qStr=this.requestInfo.substring(this.requestInfo.lastIndexOf("CRLF")).trim();
+            String qStr=this.requestInfo.substring(this.requestInfo.lastIndexOf(CRLF)).trim();
             if (null==queryStr){
                 queryStr=qStr;
             }else {
@@ -85,7 +85,7 @@ public class Request {
             kv = Arrays.copyOf(kv, 2);
             //获取key和value
             String key = kv[0];
-            String value = kv[1]==null?null:decode(kv[1],"UTF-8");
+            String value = kv[1]==null?null:decode(kv[1],"utf-8");
             //存储到map中
             if (!parameterMap.containsKey(key)) {//第一次
                 parameterMap.put(key, new ArrayList<String>());
